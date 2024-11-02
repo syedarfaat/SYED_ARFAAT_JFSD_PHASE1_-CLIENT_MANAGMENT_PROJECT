@@ -1,0 +1,49 @@
+<div class="meeting-container">
+  <div class="meeting-header">
+    <h2>Schedule Meeting</h2>
+  </div>
+  <div class="meeting-body">
+    <div class="meeting-form">
+      <form (ngSubmit)="scheduleMeeting()">
+        <div class="form-group">
+          <label for="meetingTitle">Meeting Title</label>
+          <input type="text" name="meetingTitle" class="form-control" id="meetingTitle" [(ngModel)]="title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="meetingDate">Date</label>
+          <input type="date" class="form-control" name="MeetingDate" id="meetingDate" [(ngModel)]="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="meetingTime">Time</label>
+          <input type="time" class="form-control" name="Meetingtime" id="meetingTime" [(ngModel)]="time" name="time" required>
+        </div>
+        <button type="submit" class="btn btn-primary" name="submitMeetingButton" >Schedule Meeting</button>
+        <button type="button" class="btn btn-warning" (click)="updateMeeting()" *ngIf="isEditingMeeting()">Update Meeting</button>
+      </form>
+    </div>
+    <div class="meeting-list">
+      <h3>Scheduled Meetings</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let meeting of meetings">
+            <td>{{ meeting.title }}</td>
+            <td>{{ meeting.date | date: 'fullDate' }}</td>
+            <td>{{ meeting.time  | date: 'shortTime'}}</td>
+            <td>
+              <button class="btn btn-warning" (click)="editMeeting(meeting)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteMeeting(meeting.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

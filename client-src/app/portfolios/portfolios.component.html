@@ -1,0 +1,42 @@
+<div class="portfolio-container">
+  <div class="portfolio-header">
+    <h2>Client Portfolios</h2>
+  </div>
+  <div class="portfolio-body">
+    <div class="portfolio-form">
+      <form (ngSubmit)="addPortfolio()">
+        <div class="form-group">
+          <label for="portfolioName">Portfolio Name</label>
+          <input type="text" class="form-control" id="portfolioName" [(ngModel)]="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="portfolioDescription">Description</label>
+          <textarea class="form-control" id="portfolioDescription" [(ngModel)]="description" name="description" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" name="submitPortfolioButton">Add Portfolio</button>
+      </form>
+    </div>
+    <div class="portfolio-list">
+      <h3>Portfolio List</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let portfolio of portfolios">
+            <td>{{ portfolio.name }}</td>
+            <td>{{ portfolio.description }}</td>
+            <td>
+              <button class="btn btn-warning" (click)="editPortfolio(portfolio)">Edit</button>
+              <button class="btn btn-danger" (click)="deletePortfolio(portfolio.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

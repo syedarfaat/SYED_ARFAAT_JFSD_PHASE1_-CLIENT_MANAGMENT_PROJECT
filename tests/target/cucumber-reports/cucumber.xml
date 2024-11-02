@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="5" time="31.66">
+    <testcase classname="User Management and Task Scheduling" name="Successful registration" time="7.053">
+        <system-out><![CDATA[Given I am on the registration page.........................................passed
+When I enter "testuser" as username.........................................passed
+And I enter "testuser@example.com" as email in register.....................passed
+And I enter "password123" as password in register...........................passed
+And I submit the registration form..........................................passed
+Then I should see a success message.........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="User Management and Task Scheduling" name="Successful login" time="6.03">
+        <system-out><![CDATA[Given I am on the login page................................................passed
+When I enter "testuser@example.com" as email in login.......................passed
+And I enter "password123" as password in login..............................passed
+And I submit the login form.................................................passed
+Then I should see the portfolios page.......................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="User Management and Task Scheduling" name="Adding a new portfolio" time="6.479">
+        <system-out><![CDATA[Given I am on the portfolios page...........................................passed
+When I enter "Marketing Portfolio" as portfolio name........................passed
+And I enter "This portfolio contains marketing strategies." as description..passed
+And I submit the portfolio form.............................................passed
+Then I should see "Marketing Portfolio" in the portfolio list...............passed
+]]></system-out>
+    </testcase>
+    <testcase classname="User Management and Task Scheduling" name="Adding a new project task" time="5.87">
+        <system-out><![CDATA[Given I am on the project tasks page........................................passed
+When I enter "Complete Cucumber Tests" as task title........................passed
+And I select "in-progress" as status........................................passed
+And I submit the task form..................................................passed
+Then I should see "Complete Cucumber Tests" in the project tasks list.......passed
+]]></system-out>
+    </testcase>
+    <testcase classname="User Management and Task Scheduling" name="Successful meeting scheduling" time="6.014">
+        <system-out><![CDATA[Given I am on the schedule meeting page.....................................passed
+When I enter "Team Sync" as title...........................................passed
+And I enter "30-10-2024" as date............................................passed
+And I enter "10:00" as time.................................................passed
+And I submit the meeting form...............................................passed
+And I should see "Team Sync" in the scheduled meetings......................passed
+]]></system-out>
+    </testcase>
+</testsuite>

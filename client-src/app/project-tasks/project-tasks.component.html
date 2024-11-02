@@ -1,0 +1,46 @@
+<div class="task-container">
+  <div class="task-header">
+    <h2>Project Tasks</h2>
+  </div>
+  <div class="task-body">
+    <div class="task-form">
+      <form (ngSubmit)="addTask()">
+        <div class="form-group">
+          <label for="taskTitle">Task Title</label>
+          <input type="text" name="taskTitle" class="form-control" id="taskTitle" [(ngModel)]="title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="taskStatus">Status</label>
+          <select class="form-control" name="taskStatus" id="taskStatus" [(ngModel)]="status" name="status">
+            <option value="pending">Pending</option>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" name="submitTaskButton">Add Task</button>
+      </form>
+    </div>
+    <div class="task-list">
+      <h3>Task List</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <td>{{ task.title }}</td>
+            <td>{{ task.status }}</td>
+            <td>
+              <button class="btn btn-warning" (click)="editTask(task)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
